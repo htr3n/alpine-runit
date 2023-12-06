@@ -1,0 +1,12 @@
+#!/bin/sh
+exec 2>&1
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+echo "3 :: This is the termination task"
+
+echo 'Waiting for services to stop...'
+sv -w196 force-stop /etc/service/*
+sv exit /etc/service/*
+
+echo 'Shutdown...'

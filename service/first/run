@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Redirect stderr to stdout
+exec 2>&1
+
+echo "Starting the first service"
+
+# An endless loop to simulate a running server
+exec chpst -u first sh -c "id; while true; do sleep 100; done"

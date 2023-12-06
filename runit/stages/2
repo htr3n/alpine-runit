@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+
+echo "2 :: This is the runsvdir task"
+
+# use runsvdir to monitor the service directory
+exec env - PATH=$PATH \
+  runsvdir -P /etc/service 'log: ............'
